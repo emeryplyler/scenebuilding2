@@ -7,32 +7,39 @@ public class changeskycolor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        currentColor = pink;
     }
 
     public float fraction = 0;
     Color pink = new Color(0.8576048f, 0.7059897f, 0.8962264f, 1);
     Color darkblue = new Color(0.3059375f, 0.2501335f, 0.6886792f, 1);
     public Color currentColor;
+    public float colorframes = 0;
     // Skybox skybox = gameObject.GetComponent<Skybox>();
+    public double skytime = 0;
 
     // Update is called once per frame
     void Update()
     {
-        // how far change is on a scale of 0 to 1
-        // time.time is seconds, 60fps
-        // animation starts at 200 frames
-        fraction = (float)((((Time.time % 13.33) * 60) - 200) / 400); 
-        
-        if (fraction > 0 && fraction <= 0.5) {
+        skytime = Time.time % 13.33;
+        if (skytime > 3.33 && skytime <= 6.67) {
             // move color towards dark blue
+            fraction = (float)(((skytime * 60) - 200) / 200);
             currentColor = Color.Lerp(pink, darkblue, fraction);
-            RenderSettings.skybox.color = currentColor;
-            // RenderSettings.skybox.SetColor 
-        } else if (fraction > 0.5 && fraction <= 1) {
+            // RenderSettings.skybox.color = currentColor;
+            RenderSettings.skybox.SetColor("_Tint", currentColor);
+
+        } else if (skytime > 6.67 && skytime <= 10) {
             // move color back towards pink
-            currentColor = Color.Lerp(pink, darkblue, fraction);
-            RenderSettings.skybox.color = currentColor;
+            fraction = (float)(((skytime * 60) - 400) / 200);
+            currentColor = Color.Lerp(darkblue, pink, fraction);
+            // RenderSettings.skybox.color = currentColor;
+            RenderSettings.skybox.SetColor("_Tint", currentColor);
         }
-    } // TO DO: i forgot to make it turn back to pink instead of just go from pink to blue
+
+        colorframes++; // increment frames count
+        if (colorframes > 800) {
+            colorframes = 0; // max of 800
+        }
+    }
 }
