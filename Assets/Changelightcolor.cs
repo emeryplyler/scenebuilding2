@@ -14,7 +14,7 @@ public class Changelightcolor : MonoBehaviour
     Color l_red = new Color(1, 0.1361415f, 0, 1);
     Color l_yellow = new Color(0.8867924f, 0.853542f, 0.6734603f, 1);
     Color l_blue = new Color(0.1878337f, 0.2938787f, 0.5943396f, 1);
-    double l_frames = 0;
+    public double l_frames = 0;
     Color currentColor;
     float fraction = 0;
 
