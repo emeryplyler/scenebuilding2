@@ -14,7 +14,7 @@ public class changeskycolor : MonoBehaviour
     Color pink = new Color(0.8576048f, 0.7059897f, 0.8962264f, 1);
     Color darkblue = new Color(0.3059375f, 0.2501335f, 0.6886792f, 1);
     public Color currentColor;
-    public float colorframes = 0;
+    // public float colorframes = 0;
     // Skybox skybox = gameObject.GetComponent<Skybox>();
     public double skytime = 0;
 
@@ -37,9 +37,9 @@ public class changeskycolor : MonoBehaviour
             RenderSettings.skybox.SetColor("_Tint", currentColor);
         }
 
-        colorframes++; // increment frames count
-        if (colorframes > 800) {
-            colorframes = 0; // max of 800
-        }
+        // colorframes++; // increment frames count
+        // if (colorframes > 800) {
+        //     colorframes = 0; // max of 800
+        // }
     }
 }
