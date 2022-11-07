@@ -8,6 +8,7 @@ public class changeskycolor : MonoBehaviour
     void Start()
     {
         currentColor = pink;
+        RenderSettings.skybox.SetColor("_Tint", currentColor);
     }
 
     public float fraction = 0;

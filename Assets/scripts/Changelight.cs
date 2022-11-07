@@ -10,7 +10,6 @@ public class Changelight : MonoBehaviour
     private VisualElement frame;
     private Button button;
     
-    // Start is called before the first frame update
     void OnEnable()
     {
         var uiDocument = GetComponent<UIDocument>();
@@ -22,12 +21,25 @@ public class Changelight : MonoBehaviour
 
     private int click = 0;
     private void ChangeLight() {
+        // disable other scripts
         ChangeTime(click);
-        click = (click + 1) % 3;
+        click = (click + 1) % 4;
     }
     private void ChangeTime(int n) {
         // move to different point in cycle corresponding to index n
-        
+        // index 0: dark
+        // index 1: dim
+        // index 2: bright 
+        // index 3: enable other scripts again
     }
+    /*
+    Suppose that you are executing script A, and you want to disable script B. Both of them are attached to the same object. That's an easy task:
 
+        GetComponent(B).enabled = false;
+
+    However, if A and B are attached to different objects, you have to do this:
+
+        GameObject.Find("other_object_name").GetComponent(B).enabled = false;
+
+    */
 }
