@@ -10,6 +10,7 @@ public class Changelightcolor : MonoBehaviour
     {
         dir_light = GetComponent<Light>();
         dir_light.intensity = 1;
+        dir_light.color = l_red;
     }
 
     Color l_red = new Color(1, 0.1361415f, 0, 1);

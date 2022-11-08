@@ -7,7 +7,7 @@ public class FogControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        RenderSettings.fogDensity = 0;
     }
 
     public float fogDensitySpeed = 0;
